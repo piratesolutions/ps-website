@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block content %}
+		<h3>Portfolio</h3> 
+
+		<h4>Current work</h4> 
+		<ul class="portfolio" id="portfolio-current"> 
+			{% for project in p_current %}
+			<li>
+				{% if project.url %}<a href="{{project.url}}">{% endif %}
+				<img src="{{project.img}}" alt="{{project.alt}}" />
+				{% if project.url %}</a>{% endif %}
+				<p>{{project.text|safe}}</p><br />
+				{% if project.more %}
+				<p>{{project.more|safe}}</p>
+				{% endif %}
+				<br style="clear:both;" />
+			</li>
+			{% endfor %}
+		</ul>
+		<p class="space" style="clear:both;">&nbsp;</p> 
+
+		<h4>Past work</h4> 
+		<ul class="portfolio" id="portfolio-past"> 
+			{% for project in p_past %}
+			<li>
+				{% if project.url %}<a href="{{project.url}}">{% endif %}
+				<img src="{{project.img}}" alt="{{project.alt}}" />
+				{% if project.url %}</a>{% endif %}
+				<p>{{project.text|safe}}</p><br />
+				{% if project.more %}
+				<p>{{project.more|safe}}</p>
+				{% endif %}
+				<br style="clear:both;" />
+			</li>
+			{% endfor %}
+		</ul> 
+ 
+		<p class="space" style="clear:both;">&nbsp;</p> 
+		<h3 id="anc-about">About us</h3> 
+		<div id="about"> 
+			<div style="padding-bottom: 10px;"> 
+				<span class="bigger">Sven and Timo</span> are both experienced web developers specialized in rapid development of complex web applications.
+				Thanks to advanced frameworks like Django, they are able to implement your business logic in almost no time.<br/> 
+				They have successfully worked together since 2006 and now both study <em>Business Information Systems</em> at the <a href="http://www.eufh.de/">European University of Applied Sciences</a>.
+			</div> 
+		</div> 
+
+		<p class="space">&nbsp;</p> 
+		<h3 id="anc-skillset">Skillset</h3> 
+		<div id="skillset"> 
+			<img src="/static/img/skillset.png" alt="Skillset Tagcloud Buzzword Alt Tag." /> 
+		</div> 
+
+		<p class="space">&nbsp;</p> 
+		<h3 id="anc-contact">Get in touch</h3> 
+		<div id="contact"> 
+		<p>We love getting emails and we're happy to answer your questions - just drop us a line:
+</p> 
+		<form method="post" action="/contact/"> 
+		<textarea name="text" onclick="this.style.height='200px';window.scrollTo(0, document.body.scrollHeight);if (this.value=='You are so cool!') { this.value=''; }">You are so cool!</textarea><br /> 
+		<input type="text" name="email" value="your@email.com" onclick="if (this.value=='your@email.com') { this.value=''; }" /> 
+		<input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+		<input type="submit" value="Submit" /> 
+		</form> 
+		</div> 
+{% endblock %}

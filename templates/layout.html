@@ -1,0 +1,31 @@
+<!doctype html> 
+<html> 
+	<head> 
+		<meta charset="utf-8"/> 
+		<title>piratesolutions</title> 
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]--> 
+		<link rel="stylesheet" media="all" href="/static/css/less.css"/> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"/> 
+		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ --> 
+	</head> 
+	
+	<body lang="en"> 
+		<div id="navigation">
+			<a href="/">home</a>		
+			<a href="/#anc-contact">contact us</a>
+		</div>	
+		<header>
+			<h1>piratesolutions</h1> 
+			<h4>Django programmers from Cologne, Germany</h4> 
+		</header> 
+		<p class="space"> 
+			<strong>Hey!</strong> 
+			We are Timo and Sven. We spent the last years doing freelance web development and server administration.
+		</p> 
+ 
+		{% block content %}{% endblock %}
+	</body> 
+	
+</html>

@@ -53,7 +53,6 @@ def contact():
 		try:
 			sendmail(email, CONTACT_EMAIL, u'Kontaktanfrage', '%s' % unicode(text))
 		except:
-			raise
 			return render_template('error.html', message='Unfortunately, the mail server does not want to accept your message. Sorry for that. Please try sending your query to info@piratesolutions.org. Thank you very much!')
 	
 	return render_template('thanks.html')
